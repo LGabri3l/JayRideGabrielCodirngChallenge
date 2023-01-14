@@ -25,7 +25,7 @@ namespace GabrielCodingChallenge.Core.Services
         
         public async Task GetCandidate()
         {
-            var result = await _httpClient.GetFromJsonAsync<List<Candidates>>("api/Candidate");
+            var result = await _httpClient.GetFromJsonAsync<List<Candidates>>("GabrielAPIChallenge/Candidate");
             if (result != null)
                 candidate = result;
         }

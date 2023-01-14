@@ -6,7 +6,7 @@ using System.Net.Http;
 
 namespace GabrielCodingChallenge.API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("GabrielAPIChallenge/[controller]")]
     [ApiController]
     public class LocationController : ControllerBase
     {

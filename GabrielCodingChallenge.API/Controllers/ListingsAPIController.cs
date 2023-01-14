@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace GabrielCodingChallenge.API.Controllers
 {
-    [Route("Gabo/[controller]")]
+    [Route("GabrielAPIChallenge/[controller]")]
     [ApiController]
     public class ListingsAPIController : ControllerBase
     {
