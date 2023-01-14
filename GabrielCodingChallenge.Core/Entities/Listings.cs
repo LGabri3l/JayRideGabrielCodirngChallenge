@@ -12,6 +12,7 @@ namespace GabrielCodingChallenge.Core.Entities
 
         public double pricePerPassenger { get; set; }
 
+        public double totalprice { get; set; }
         public vehicleType vehicleType { get; set; }
     }
 }

@@ -9,6 +9,6 @@ namespace GabrielCodingChallenge.Core.Interfaces
     public interface ILocation
     {
         Task<object> GetLocation();
-        Task<object> GetLocation(string ip);
+        Task<object> GetLocationByIP(string ip);
     }
 }

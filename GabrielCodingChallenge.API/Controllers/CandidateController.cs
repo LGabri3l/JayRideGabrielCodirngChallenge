@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace GabrielCodingChallenge.API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("GabrielAPIChallenge/[controller]")]
     [ApiController]
     public class CandidateController : ControllerBase
     {

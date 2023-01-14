@@ -9,7 +9,7 @@ namespace GabrielCodingChallenge.Core.Interfaces
 {
     public interface IListingsAPI
     {
-        Task<object> TotalPrice();
-        Task<object> GetList(int numPassenger);
+        Task<object> GetList();
+        Task<object> GetListByTotalPrice(int numPassenger);
     }
 }
