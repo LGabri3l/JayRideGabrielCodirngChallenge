@@ -5,12 +5,12 @@ namespace GabrielCodingChallenge.API.Controllers
 {
     [Route("GabrielAPIChallenge/[controller]")]
     [ApiController]
-    public class ListingsAPIController : ControllerBase
+    public class ListingsController : ControllerBase
     {
 
         private readonly IListingsAPI _listingsAPI;
 
-        public ListingsAPIController(IListingsAPI listingsAPI)
+        public ListingsController(IListingsAPI listingsAPI)
         {
             _listingsAPI = listingsAPI;
         }
