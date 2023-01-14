@@ -20,12 +20,13 @@ namespace GabrielCodingChallenge.Core.Services
             _httpClient = httpClient;
         }
 
-        public List<Candidates> candidate = new List<Candidates>();
+        public Candidates candidate = new Candidates();
 
         
         public async Task GetCandidate()
         {
-            var result = await _httpClient.GetFromJsonAsync<List<Candidates>>("GabrielAPIChallenge/Candidate");
+            var url = "GabrielAPIChallenge/Candidate";
+            var result = await _httpClient.GetFromJsonAsync<Candidates>(url);
             if (result != null)
                 candidate = result;
         }

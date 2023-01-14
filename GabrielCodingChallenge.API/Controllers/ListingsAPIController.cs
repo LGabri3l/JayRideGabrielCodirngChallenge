@@ -1,6 +1,4 @@
-﻿using GabrielCodingChallenge.Core.Entities;
-using GabrielCodingChallenge.Core.Interfaces;
-using Microsoft.AspNetCore.Http;
+﻿using GabrielCodingChallenge.Core.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GabrielCodingChallenge.API.Controllers
@@ -17,27 +15,19 @@ namespace GabrielCodingChallenge.API.Controllers
             _listingsAPI = listingsAPI;
         }
 
-        [HttpGet("{numPassenger}")]
-        public async Task<ActionResult> GetTotalPrice(int numPassenger)
+        [HttpGet]
+        public async Task<ActionResult> GetAll(int numPassenger)
         {
-            var result = await _listingsAPI.GetList(numPassenger);
+            var result = await _listingsAPI.GetList();
             return Ok(result);
         }
 
+        [HttpGet("{numPassenger}")]
+        public async Task<ActionResult> GetTotalPrice(int numPassenger)
+        {
+            var result = await _listingsAPI.GetListByTotalPrice(numPassenger);
+            return Ok(result);
+        }
 
-        //[Route("Listings")]
-        //public async Task<ActionResult> GetListings()
-        //{
-        //    var result = await _listingsAPI.TotalPrice();
-
-        //    foreach (var item in result)
-        //    {
-
-        //    }
-
-
-
-        //    return Ok(result);
-        //}
     }
 }

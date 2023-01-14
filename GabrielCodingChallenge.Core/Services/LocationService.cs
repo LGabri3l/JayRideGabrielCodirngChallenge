@@ -1,12 +1,6 @@
 ﻿using GabrielCodingChallenge.Core.Entities;
 using GabrielCodingChallenge.Core.Interfaces;
-using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http.Json;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GabrielCodingChallenge.Core.Services
 {
@@ -22,15 +16,17 @@ namespace GabrielCodingChallenge.Core.Services
 
         public async Task<object> GetLocation()
         {
-            var result = await _httpClient.GetFromJsonAsync<Location>("http://ip-api.com/json/");            
+            var url = "http://ip-api.com/json/";
+            var result = await _httpClient.GetFromJsonAsync<Location>(url);            
             if (result != null)
                 location = result;
             return location;
         }
 
-        public async Task<object> GetLocation(string ip)
+        public async Task<object> GetLocationByIP(string ip)
         {
-            var result = await _httpClient.GetFromJsonAsync<Location>("http://ip-api.com/json/"+ip);            
+            var url = "http://ip-api.com/json/";
+            var result = await _httpClient.GetFromJsonAsync<Location>(url+ip);            
             if (result != null)
                 location = result;
             return location;

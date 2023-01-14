@@ -18,7 +18,7 @@ namespace GabrielCodingChallenge.API.Controllers
             _location = location;
         }
 
-
+        //
         [HttpGet]
         public async Task<IActionResult> GetLocation()
         {
@@ -27,9 +27,9 @@ namespace GabrielCodingChallenge.API.Controllers
         }
 
         [HttpGet("{ip}")]
-        public async Task<IActionResult> GetLocationByIP(string ip)
+        public async Task<IActionResult> GetSpecificLocation(string ip)
         {           
-            var result = await _location.GetLocation(ip);
+            var result = await _location.GetLocationByIP(ip);
             return Ok(result); 
         }
 

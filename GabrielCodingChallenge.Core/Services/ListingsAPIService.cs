@@ -20,17 +20,19 @@ namespace GabrielCodingChallenge.Core.Services
 
         ListingsAPI listings = new ListingsAPI();
 
-        public async Task<object> TotalPrice()
+        public async Task<object> GetList()
         {
-            var result = await _httpClient.GetFromJsonAsync<ListingsAPI>("https://jayridechallengeapi.azurewebsites.net/api/QuoteRequest/");
+            var url = "https://jayridechallengeapi.azurewebsites.net/api/QuoteRequest/";
+            var result = await _httpClient.GetFromJsonAsync<ListingsAPI>(url);
             if (result != null)
                 listings = result;
             return listings;
         }
 
-        public async Task<object> GetList(int numPassenger)
+        public async Task<object> GetListByTotalPrice(int numPassenger)
         {
-            var result = await _httpClient.GetFromJsonAsync<ListingsAPI>("https://jayridechallengeapi.azurewebsites.net/api/QuoteRequest/");
+            var url = "https://jayridechallengeapi.azurewebsites.net/api/QuoteRequest/";
+            var result = await _httpClient.GetFromJsonAsync<ListingsAPI>(url);
             if (result != null)
                 listings = result;
 
@@ -40,17 +42,12 @@ namespace GabrielCodingChallenge.Core.Services
             {
                 if (item.vehicleType.maxPassengers > numPassenger)
                 {
-
                     Listings listing = new Listings();
 
-                    listing.pricePerPassenger = (item.pricePerPassenger * item.vehicleType.maxPassengers);
+                    listing.pricePerPassenger = item.pricePerPassenger;
+                    listing.totalprice = (item.pricePerPassenger * numPassenger);
                     listing.name = item.name;
                     listing.vehicleType = item.vehicleType;
-                    //listing.pricePerPassenger = item.pricePerPassenger;
-                    //listing.vehicleType = item.vehicleType;
-
-                    //vehicle.maxPassengers = item.vehicleType.maxPassengers;
-                    //listing.vehicleType.maxPassengers = vehicle.maxPassengers;
 
                     listingsList.Add(listing);
                 }
@@ -60,6 +57,6 @@ namespace GabrielCodingChallenge.Core.Services
             return listingsList;
         }
 
-
     }
+
 }
