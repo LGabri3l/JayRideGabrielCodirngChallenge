@@ -15,13 +15,6 @@ namespace GabrielCodingChallenge.API.Controllers
             _listingsAPI = listingsAPI;
         }
 
-        [HttpGet]
-        public async Task<ActionResult> GetAll(int numPassenger)
-        {
-            var result = await _listingsAPI.GetList();
-            return Ok(result);
-        }
-
         [HttpGet("{numPassenger}")]
         public async Task<ActionResult> GetTotalPrice(int numPassenger)
         {

@@ -8,8 +8,7 @@ using System.Threading.Tasks;
 namespace GabrielCodingChallenge.Core.Interfaces
 {
     public interface IListingsAPI
-    {
-        Task<object> GetList();
+    {        
         Task<object> GetListByTotalPrice(int numPassenger);
     }
 }

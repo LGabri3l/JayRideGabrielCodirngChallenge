@@ -20,15 +20,6 @@ namespace GabrielCodingChallenge.Core.Services
 
         ListingsAPI listings = new ListingsAPI();
 
-        public async Task<object> GetList()
-        {
-            var url = "https://jayridechallengeapi.azurewebsites.net/api/QuoteRequest/";
-            var result = await _httpClient.GetFromJsonAsync<ListingsAPI>(url);
-            if (result != null)
-                listings = result;
-            return listings;
-        }
-
         public async Task<object> GetListByTotalPrice(int numPassenger)
         {
             var url = "https://jayridechallengeapi.azurewebsites.net/api/QuoteRequest/";
